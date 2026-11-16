@@ -408,6 +408,7 @@ class FEMMatrixFactorizationAssembler:
                 ffi.cast("double *", ffi.from_buffer(cell_vertex_coordinates)),  # coordinate_dofs
                 ffi.NULL,  # entity_local_index (cell integral)
                 ffi.NULL,  # cell_orientation
+                ffi.NULL,  # custom_data (new in DOLFINx 0.10)
             )
             cell_matrix = np.linalg.cholesky(cell_matrix)
             self._insert_in_block_diagonal_matrix(global_ind, cell_matrix, block_diagonal_matrix)
